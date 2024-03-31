@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApp01.Models.Entites{
 
-    [Table("products")]
-    public class Product {
+    [Table("categories")]
+    public class Category {
 
         [Key]
         [Column("id")]
@@ -14,17 +14,8 @@ namespace WebApp01.Models.Entites{
         [Column("name")]
         public required string Name { get; set; }
 
-        [Column("qty")]
-        public required int Qty { get; set; }
-
-        [Column("unit_price")]
-        public required int UnitPrice { get; set; }
-
         [Column("details")]
         public string? Details { get; set; }
-
-        [Column("category_id")]
-        public int CategoryId { get; set; }
 
     }
 
