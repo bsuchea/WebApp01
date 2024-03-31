@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WebApp01.Models;
 using WebApp01.Models.Entites;
+using WebApp01;
 
 namespace WebApp01.Controllers;
 
@@ -13,11 +14,17 @@ public class ProductController : Controller {
         this._dbContext = dbContext;
     }
 
-    public IActionResult Index(){
+    public IActionResult Index(int Page){
+        var req = new Request();
+        req.Page = Page;
+        var pro = _dbContext.Products;
 
-        var pro = _dbContext.Products.ToList();
+        ViewBag.Total = pro.Count();
+        ViewBag.Page = req.Page;
+        req.Skip = req.Page * req.PerPage;
+        req.Take = req.Skip + req.PerPage;
 
-        return View(pro);
+        return View(pro.OrderByDescending(t => t.Id).Skip(req.Skip).Take(req.Take).ToList());
     }
 
     public IActionResult Create(){

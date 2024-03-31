@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var page = ViewBag.Page;
 }
+
 
 <div class="text-center">
     <h1 class="display-4">Products</h1>
@@ -54,20 +56,20 @@
             </table>
             <div class="d-flex justify-content-between">
                 <div>
-                    Total : 5
+                    Total : @ViewBag.Total
                 </div>
-                <nav aria-label="...">
+                <nav aria-label="">
                     <ul class="pagination">
-                        <li class="page-item disabled">
-                            <a class="page-link">Previous</a>
+                        <li class="page-item @(page==0?"disabled":"")">
+                            <a class="page-link" href="?Page=@(page-1)">Previous</a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">2</a>
+                        @for(int i = 0; i <= @ViewBag.Total / 5 ; i++){
+                        <li class="page-item @( page==i?"active":"")">
+                            <a class="page-link" href="?Page=@i">@(i+1)</a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                        }
+                        <li class="page-item @(page==(ViewBag.Total/5)?"disabled":"")">
+                            <a class="page-link" href="?Page=@(page+1)">Next</a>
                         </li>
                     </ul>
                 </nav>

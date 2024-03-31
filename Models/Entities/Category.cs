@@ -14,9 +14,6 @@ namespace WebApp01.Models.Entites{
         [Column("name")]
         public required string Name { get; set; }
 
-        [Column("details")]
-        public string? Details { get; set; }
-
     }
 
 }
