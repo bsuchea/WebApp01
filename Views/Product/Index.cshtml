@@ -10,13 +10,13 @@
     <div class="card">
         <div class="mt-3 mx-2">
             <div class="d-flex justify-content-between">
-                <form class="row g-3">
+                <form action="get" class="row g-3">
                     <div class="col-auto">
                         <label for="inputPassword2" class="visually-hidden">Search</label>
-                        <input type="password" class="form-control" id="inputPassword2" placeholder="Search">
+                        <input type="text" name="search" class="form-control" placeholder="Search">
                     </div>
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                        <button type="submit" asp-controller="Product" asp-action="Index" class="btn btn-primary mb-3"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                     </div>
                 </form>
                 <div>
