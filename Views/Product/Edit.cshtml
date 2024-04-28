@@ -24,6 +24,14 @@
                         <label class="form-label">Unit Price</label>
                         <input type="number" asp-for="UnitPrice" class="form-control">
                     </div>
+                    <div class="mb-6 col-md-6">
+                        <label class="form-label">Category</label>
+                        <select asp-for="CategoryId" class="form-control">
+                            @foreach(var cat in ViewBag.Categories){
+                                <option value="@cat.Id">@cat.Name</option>
+                            }
+                        </select>
+                    </div>
                     <div class="mb-3 col-md-12">
                         <label class="form-label">Details</label>
                         <textarea asp-for="Details" class="form-control" rows="2"></textarea>

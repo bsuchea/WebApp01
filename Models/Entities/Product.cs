@@ -23,8 +23,8 @@ namespace WebApp01.Models.Entites{
         [Column("details")]
         public string? Details { get; set; }
 
-        // [Column("category_id")]
-        // public int CategoryId { get; set; }
+        [Column("category_id")]
+        public int CategoryId { get; set; }
 
     }
 
