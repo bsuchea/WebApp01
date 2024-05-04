@@ -17,6 +17,7 @@ public class ProductController : Controller {
     public IActionResult Index(string search,int Page){
         var req = new Request();
         req.Page = Page;
+        ViewBag.Search = search;
         var pro = from t in _dbContext.Products 
         join t2 in _dbContext.Categories on t.CategoryId equals t2.Id
         select new {
