@@ -1,0 +1,45 @@
+﻿@using WebApp01.Models.Entites;
+@model Sale;
+@{
+    ViewData["Title"] = "Sale Product";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sale Product</h1>
+
+    <div class="card">
+        <div class="mt-3 mx-2">
+            <form class="p-3" method="post">
+                <div class="row">
+                    <div class="mb-3 col-md-3">
+                        <label class="form-label">Customer Name</label>
+                        <input type="text" asp-for="Customer" class="form-control">
+                        <span asp-validation-for="Customer"></span>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <label class="form-label">Customer Phone</label>
+                        <input type="text" asp-for="CustomerPhone" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-6 col-md-6">
+                        <label class="form-label">Product</label>
+                        <select asp-for="ProductId" class="form-control">
+                            @foreach(var pro in ViewBag.Products){
+                                <option value="@pro.Id">@pro.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <label class="form-label">Quantity</label>
+                        <input type="number" asp-for="Qty" class="form-control">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" asp-controller="Sale" asp-action="Create" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

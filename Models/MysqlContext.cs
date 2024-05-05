@@ -11,5 +11,7 @@ namespace WebApp01.Models{
         
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Sale> Sales { get; set; }
+
     }
 }
